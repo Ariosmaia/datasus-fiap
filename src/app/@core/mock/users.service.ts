@@ -8,6 +8,7 @@ export class UserService extends UserData {
   private time: Date = new Date;
 
   private users = {
+    allan: { name: 'Allan Rios', picture: 'assets/images/allan.jpg' },
     nick: { name: 'Nick Jones', picture: 'assets/images/nick.png' },
     eva: { name: 'Eva Moor', picture: 'assets/images/eva.png' },
     jack: { name: 'Jack Williams', picture: 'assets/images/jack.png' },

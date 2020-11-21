@@ -12,13 +12,14 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
     this.data = {
       firstLine: this.getDataForFirstLine(),
       secondLine: this.getDataForSecondLine(),
+      lastLine: this.getDataLastLine(),
     };
   }
 
   getDataForFirstLine(): number[] {
     return this.createEmptyArray(100)
       .map((_, index) => {
-        const oneFifth = index / 5;
+        const oneFifth = index / 3.3;
 
         return (Math.sin(oneFifth) * (oneFifth - 10) + index / 6) * 5;
       });
@@ -27,7 +28,16 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
   getDataForSecondLine(): number[] {
     return this.createEmptyArray(100)
       .map((_, index) => {
-        const oneFifth = index / 5;
+        const oneFifth = index / 3.3;
+
+        return (Math.cos(oneFifth) * (oneFifth - 10) + index / 6) * 5;
+      });
+  }
+
+  getDataLastLine(): number[] {
+    return this.createEmptyArray(100)
+      .map((_, index) => {
+        const oneFifth = index / 3.3;
 
         return (Math.cos(oneFifth) * (oneFifth - 10) + index / 6) * 5;
       });
@@ -37,7 +47,7 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
     return Array.from(Array(nPoints));
   }
 
-  getChartData(): Observable<{ firstLine: number[]; secondLine: number[]; }> {
+  getChartData(): Observable<{ firstLine: number[]; secondLine: number[]; lastLine: number[]}> {
     return observableOf(this.data);
   }
 }

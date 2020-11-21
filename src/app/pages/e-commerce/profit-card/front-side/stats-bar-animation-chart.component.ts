@@ -17,9 +17,10 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
 
   private alive = true;
 
-  @Input() linesData: { firstLine: number[]; secondLine: number[] } = {
+  @Input() linesData: { firstLine: number[]; secondLine: number[], lastLine: number[] } = {
     firstLine: [],
     secondLine: [],
+    lastLine: [],
   };
 
   echartsIntance: any;
@@ -49,6 +50,7 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
       color: [
         chartVariables.firstAnimationBarColor,
         chartVariables.secondAnimationBarColor,
+        'white',
       ],
       grid: {
         left: 0,
@@ -57,7 +59,7 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
         bottom: 0,
       },
       legend: {
-        data: ['transactions', 'orders'],
+        data: ['Jovens - Até 19 anos', 'Adultos - Entre 20 até 59 anos', 'Idosos - 60 anos em diante'],
         borderWidth: 0,
         borderRadius: 0,
         itemWidth: 15,
@@ -120,16 +122,22 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
       ],
       series: [
         {
-          name: 'transactions',
+          name: 'Jovens - Até 19 anos',
           type: 'bar',
           data: this.linesData.firstLine,
           animationDelay: idx => idx * 10,
         },
         {
-          name: 'orders',
+          name: 'Adultos - Entre 20 até 59 anos',
           type: 'bar',
           data: this.linesData.secondLine,
           animationDelay: idx => idx * 10 + 100,
+        },
+        {
+          name: 'Idosos - 60 anos em diante',
+          type: 'bar',
+          data: this.linesData.lastLine,
+          animationDelay: idx => idx * 10 + 200,
         },
       ],
       animationEasing: 'elasticOut',

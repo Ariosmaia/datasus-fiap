@@ -30,6 +30,7 @@ import { PlayerComponent } from './rooms/player/player.component';
 import { TrafficComponent } from './traffic/traffic.component';
 import { TrafficChartComponent } from './traffic/traffic-chart.component';
 import { FormsModule } from '@angular/forms';
+import { MapsModule } from '../maps/maps.module';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     NbIconModule,
     NbButtonModule,
     NgxEchartsModule,
+    MapsModule,
   ],
   declarations: [
     DashboardComponent,
