@@ -7,9 +7,4 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/dashboard',
     home: true,
   },
-  {
-    title: 'Mapa SUS',
-    icon: 'map-outline',
-    link: '/pages/iot-dashboard',
-  },
 ];

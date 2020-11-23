@@ -3,21 +3,63 @@
   <div class="col-xxl-5">
     <div class="row">
       <div class="col-md-12">
-        <ngx-profit-card></ngx-profit-card>
+
+        <nb-reveal-card [showToggleButton]="false" [revealed]="false">
+          <nb-card-front>
+            <nb-card size="small">
+              <nb-card-header>
+                <span>Total de internações por sexo</span>
+              </nb-card-header>
+              <div style="display: block;">
+                <div>
+                  <canvas baseChart [datasets]="horizontalBarChartData" [labels]="horizontalBarChartLabels" [options]="horizontalBarChartOptions"
+                    [legend]="horizontalBarChartLegend" [chartType]="horizontalBarChartType">
+                  </canvas>
+                </div>
+              </div>
+            </nb-card>
+          </nb-card-front>
+        </nb-reveal-card>
+
       </div>
     </div>
-
     <ngx-traffic-reveal-card></ngx-traffic-reveal-card>
   </div>
 
   <div class="col-xxl-7">
-    <ngx-ecommerce-charts></ngx-ecommerce-charts>
+
+    <nb-reveal-card [showToggleButton]="false" [revealed]="false">
+      <nb-card-front>
+        <nb-card size="giant">
+          <nb-card-header>
+            <span>Top 10 de custos de procedimentos - Somatória por municipio</span>
+          </nb-card-header>
+          <div style="display: block; margin-top: 100px;">
+            <canvas baseChart
+                    [data]="pieChartData"
+                    [labels]="pieChartLabels"
+                    [chartType]="pieChartType"></canvas>
+          </div>
+        </nb-card>
+      </nb-card-front>
+    </nb-reveal-card>
   </div>
 </div>
 
 <div class="row">
   <div class="col-xxl-9">
-    <ngx-country-orders></ngx-country-orders>
+    <nb-card [size]="breakpoint.width >= breakpoints.md ? 'medium' : 'giant'">
+      <nb-card-header>Top 10 internações</nb-card-header>
+      <nb-card-body>
+        <div style="width: 70%;">
+          <div>
+            <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+              [legend]="barChartLegend" [chartType]="barChartType">
+            </canvas>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 
   <div class="col-xxl-3">
@@ -27,7 +69,18 @@
 
 <div class="row">
   <div class="col-xxl-9">
-    <ngx-ecommerce-visitors-analytics></ngx-ecommerce-visitors-analytics>
+    <nb-card [size]="breakpoint.width >= breakpoints.md ? 'medium' : 'giant'">
+      <nb-card-header>Top 10 internações</nb-card-header>
+      <nb-card-body>
+        <div style="width: 70%;">
+          <div>
+            <canvas baseChart [datasets]="horizontalBarChartDataRaca" [labels]="horizontalBarChartLabelsRaca" [options]="horizontalBarChartOptionsRaca"
+              [legend]="horizontalBarChartLegendRaca" [chartType]="horizontalBarChartTypeRaca">
+            </canvas>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
   </div>
 
   <div class="col-xxl-3">

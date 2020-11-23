@@ -1,12 +1,7 @@
 <nb-list>
-  <nb-list-item class="item" *ngFor="let item of frontCardData; trackBy: trackByDate">
-    <span>{{ item.date }}</span>
-    <span>{{ item.value }}</span>
-    <span class="delta" [class.up]="item.delta.up" [class.down]="!item.delta.up">
-      <nb-icon [icon]="item.delta.up ? 'arrow-up' : 'arrow-down'" pack="eva"></nb-icon>
-      {{ item.delta.value }}%
-    </span>
-    <ngx-traffic-bar [barData]="item.comparison" [successDelta]="item.delta.up">
-    </ngx-traffic-bar>
+  <nb-list-item class="item" *ngFor="let item of frontCardData; index as i">
+    <span>{{ i+1 + ')' }}</span>
+    <span>{{ item.name }}</span>
+    <span>{{ item.qtd }}</span>
   </nb-list-item>
 </nb-list>

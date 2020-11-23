@@ -35,7 +35,15 @@ export class LeafletComponent   {
   }
 
   private addSampleMarker() {
-    const marker = new L.Marker([-23.4861546,  -46.5766856]);
+    const myIcon = L.icon({
+      iconUrl: 'assets/images/pointer.png',
+      iconSize:     [40, 40],
+      shadowSize:   [50, 50],
+      iconAnchor:   [23, 90],
+      shadowAnchor: [4, 62],
+      popupAnchor:  [-3, -76],
+    });
+    const marker = new L.Marker([-23.4861546,  -46.5766856], {icon: myIcon});
     marker.addTo(this.map).bindPopup('Ubs Jardim Brasil - São Paulo, SP')
     .openPopup();
   }

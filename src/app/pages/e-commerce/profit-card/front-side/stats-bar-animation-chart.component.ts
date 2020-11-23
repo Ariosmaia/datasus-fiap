@@ -17,10 +17,9 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
 
   private alive = true;
 
-  @Input() linesData: { firstLine: number[]; secondLine: number[], lastLine: number[] } = {
+  @Input() linesData: { firstLine: number[]; secondLine: number[] } = {
     firstLine: [],
     secondLine: [],
-    lastLine: [],
   };
 
   echartsIntance: any;
@@ -50,7 +49,6 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
       color: [
         chartVariables.firstAnimationBarColor,
         chartVariables.secondAnimationBarColor,
-        'white',
       ],
       grid: {
         left: 0,
@@ -59,7 +57,7 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
         bottom: 0,
       },
       legend: {
-        data: ['Jovens - Até 19 anos', 'Adultos - Entre 20 até 59 anos', 'Idosos - 60 anos em diante'],
+        data: ['Masculino', 'Feminino'],
         borderWidth: 0,
         borderRadius: 0,
         itemWidth: 15,
@@ -81,7 +79,7 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
         backgroundColor: chartVariables.tooltipBg,
         borderColor: chartVariables.tooltipBorderColor,
         borderWidth: chartVariables.tooltipBorderWidth,
-        formatter: params => `$ ${Math.round(parseInt(params.value, 10))}`,
+        formatter: params => `${params.value}`,
         extraCssText: chartVariables.tooltipExtraCss,
       },
       xAxis: [
@@ -122,22 +120,16 @@ export class StatsBarAnimationChartComponent implements AfterViewInit, OnDestroy
       ],
       series: [
         {
-          name: 'Jovens - Até 19 anos',
+          name: 'Masculino',
           type: 'bar',
           data: this.linesData.firstLine,
           animationDelay: idx => idx * 10,
         },
         {
-          name: 'Adultos - Entre 20 até 59 anos',
+          name: 'Feminino',
           type: 'bar',
           data: this.linesData.secondLine,
           animationDelay: idx => idx * 10 + 100,
-        },
-        {
-          name: 'Idosos - 60 anos em diante',
-          type: 'bar',
-          data: this.linesData.lastLine,
-          animationDelay: idx => idx * 10 + 200,
         },
       ],
       animationEasing: 'elasticOut',

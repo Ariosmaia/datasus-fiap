@@ -11,7 +11,7 @@ export class StatsCardFrontComponent {
 
   private alive = true;
 
-  linesData: { firstLine: number[]; secondLine: number[]; lastLine: number[] };
+  linesData: { firstLine: number[]; secondLine: number[]; };
 
   constructor(private profitBarAnimationChartService: ProfitBarAnimationChartData) {
     this.profitBarAnimationChartService.getChartData()

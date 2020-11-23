@@ -12,42 +12,22 @@ export class ProfitBarAnimationChartService extends ProfitBarAnimationChartData 
     this.data = {
       firstLine: this.getDataForFirstLine(),
       secondLine: this.getDataForSecondLine(),
-      lastLine: this.getDataLastLine(),
     };
   }
 
   getDataForFirstLine(): number[] {
-    return this.createEmptyArray(100)
-      .map((_, index) => {
-        const oneFifth = index / 3.3;
-
-        return (Math.sin(oneFifth) * (oneFifth - 10) + index / 6) * 5;
-      });
+    return [81360];
   }
 
   getDataForSecondLine(): number[] {
-    return this.createEmptyArray(100)
-      .map((_, index) => {
-        const oneFifth = index / 3.3;
-
-        return (Math.cos(oneFifth) * (oneFifth - 10) + index / 6) * 5;
-      });
-  }
-
-  getDataLastLine(): number[] {
-    return this.createEmptyArray(100)
-      .map((_, index) => {
-        const oneFifth = index / 3.3;
-
-        return (Math.cos(oneFifth) * (oneFifth - 10) + index / 6) * 5;
-      });
+    return [99382];
   }
 
   createEmptyArray(nPoints: number) {
     return Array.from(Array(nPoints));
   }
 
-  getChartData(): Observable<{ firstLine: number[]; secondLine: number[]; lastLine: number[]}> {
+  getChartData(): Observable<{ firstLine: number[]; secondLine: number[]}> {
     return observableOf(this.data);
   }
 }

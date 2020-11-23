@@ -31,11 +31,11 @@ export class StateService implements OnDestroy {
       name: 'Sidebar at layout start',
       icon: 'nb-layout-sidebar-left',
       id: 'start',
-      selected: true,
     },
     {
       name: 'Sidebar at layout end',
       icon: 'nb-layout-sidebar-right',
+      selected: true,
       id: 'end',
     },
   ];
