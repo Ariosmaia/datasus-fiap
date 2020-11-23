@@ -13,45 +13,10 @@ import {
   StateService,
 } from './utils';
 import { UserData } from './data/users';
-import { ElectricityData } from './data/electricity';
-import { SmartTableData } from './data/smart-table';
-import { UserActivityData } from './data/user-activity';
-import { OrdersChartData } from './data/orders-chart';
-import { ProfitChartData } from './data/profit-chart';
-import { TrafficListData } from './data/traffic-list';
-import { EarningData } from './data/earning';
-import { OrdersProfitChartData } from './data/orders-profit-chart';
-import { TrafficBarData } from './data/traffic-bar';
-import { ProfitBarAnimationChartData } from './data/profit-bar-animation-chart';
-import { TemperatureHumidityData } from './data/temperature-humidity';
-import { SolarData } from './data/solar';
-import { TrafficChartData } from './data/traffic-chart';
-import { StatsBarData } from './data/stats-bar';
-import { CountryOrderData } from './data/country-order';
-import { StatsProgressBarData } from './data/stats-progress-bar';
-import { VisitorsAnalyticsData } from './data/visitors-analytics';
-import { SecurityCamerasData } from './data/security-cameras';
 
 import { UserService } from './mock/users.service';
 import { MockDataModule } from './mock/mock-data.module';
 
-const socialLinks = [
-  {
-    url: 'https://github.com/akveo/nebular',
-    target: '_blank',
-    icon: 'github',
-  },
-  {
-    url: 'https://www.facebook.com/akveo/',
-    target: '_blank',
-    icon: 'facebook',
-  },
-  {
-    url: 'https://twitter.com/akveo_inc',
-    target: '_blank',
-    icon: 'twitter',
-  },
-];
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
@@ -75,14 +40,7 @@ export const NB_CORE_PROVIDERS = [
         delay: 3000,
       }),
     ],
-    forms: {
-      login: {
-        socialLinks: socialLinks,
-      },
-      register: {
-        socialLinks: socialLinks,
-      },
-    },
+
   }).providers,
 
   NbSecurityModule.forRoot({
